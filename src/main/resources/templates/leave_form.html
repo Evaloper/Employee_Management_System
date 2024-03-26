@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Leave Request Form</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Leave Request Form</h1>
+    <form th:action="@{/leave/form}" th:object="${leave}" method="POST">
+        <div class="form-group">
+            <label for="employeeId">Employee ID</label>
+            <input type="number" class="form-control" id="employeeId" th:field="*{employeeId}" required>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Employee FullName</label>
+            <input type="text" class="form-control" id="fullName" th:field="*{fullName}" required>
+        </div>
+        <div class="form-group">
+            <label for="startDate">Start Date:</label>
+            <input type="date" class="form-control" id="startDate" th:field="*{startDate}" required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">End Date:</label>
+            <input type="date" class="form-control" id="endDate" th:field="*{endDate}" required>
+        </div>
+        <div class="form-group">
+            <label for="leaveType">Leave Type:</label>
+            <select class="form-control" id="leaveType" th:field="*{leaveType}"  required>
+                <option value="ANNUAL_LEAVE">Annual Leave</option>
+                <option value="SICK_LEAVE">Sick Leave</option>
+                <option value="MATERNITY_LEAVE">Maternity Leave</option>
+                <option value="PATERNITY_LEAVE">Paternity Leave</option>
+                <option value="UNPAID_LEAVE">Unpaid Leave</option>
+                <option value="OTHER">Other</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
